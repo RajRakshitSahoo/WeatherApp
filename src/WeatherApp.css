@@ -1,0 +1,79 @@
+/* ── WeatherApp wrapper ───────────────────────────────────── */
+.WeatherApp {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem 4rem;
+
+  /* Animated gradient background */
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating background orbs */
+.WeatherApp::before,
+.WeatherApp::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+.WeatherApp::before {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, #a78bfa, transparent 70%);
+  top: -100px;
+  left: -120px;
+  animation: blobFloat 8s ease-in-out infinite alternate;
+}
+.WeatherApp::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #38bdf8, transparent 70%);
+  bottom: -80px;
+  right: -80px;
+  animation: blobFloat 10s ease-in-out infinite alternate-reverse;
+}
+
+/* App title */
+.weather-title {
+  z-index: 1;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #a78bfa, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+.weather-subtitle {
+  z-index: 1;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* Keyframes */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes blobFloat {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(30px, 40px) scale(1.08); }
+}

@@ -1,0 +1,89 @@
+/* ── SearchBox ────────────────────────────────────────────── */
+.SearchBox {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50px;
+  padding: 8px 8px 8px 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.search-form:focus-within {
+  box-shadow: 0 8px 40px rgba(167, 139, 250, 0.25);
+  border-color: rgba(167, 139, 250, 0.5);
+}
+
+/* Override MUI TextField for glass look */
+.search-form .MuiOutlinedInput-root {
+  background: transparent !important;
+  color: #fff !important;
+  border-radius: 50px;
+}
+.search-form .MuiOutlinedInput-root fieldset {
+  border: none !important;
+}
+.search-form .MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.search-form .MuiInputLabel-root.Mui-focused {
+  color: #a78bfa !important;
+}
+.search-form .MuiInputBase-input {
+  color: #fff !important;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.search-btn {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #a78bfa, #38bdf8) !important;
+  color: #fff !important;
+  border-radius: 50px !important;
+  padding: 10px 26px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.3px !important;
+  text-transform: none !important;
+  box-shadow: 0 4px 16px rgba(167, 139, 250, 0.35) !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  border: none !important;
+}
+.search-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 24px rgba(167, 139, 250, 0.55) !important;
+}
+.search-btn:active {
+  transform: scale(0.97);
+}
+
+.search-error {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.25);
+  border-radius: 8px;
+  padding: 8px 18px;
+  animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-6px); }
+  75%       { transform: translateX(6px); }
+}
